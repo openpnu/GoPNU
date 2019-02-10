@@ -1,5 +1,10 @@
 <resources>
   <string name="app_name">GoPNU</string>
 
+  <string name="email">이메일 주소</string>
+  <string name="password">비밀번호</string>
+  <string name="sign_up">회원가입</string>
+  <string name="sign_in">로그인</string>
+
   <string name="sign_in_by_email">이메일 주소로 로그인</string>
 </resources>
