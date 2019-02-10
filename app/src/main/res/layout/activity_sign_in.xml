@@ -14,11 +14,10 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:text="@string/app_name"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/sign_in_by_email_button"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.382"/>
+    app:layout_constraintTop_toTopOf="parent"/>
 
   <android.support.design.button.MaterialButton
     android:id="@+id/sign_in_by_email_button"
@@ -33,8 +32,8 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/sign_in_app_name"
-    app:layout_constraintVertical_bias="0.382"/>
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.618"/>
 
   <!--TODO(@ghkim3221): Google 로그인 추가 필요-->
 </android.support.constraint.ConstraintLayout>
