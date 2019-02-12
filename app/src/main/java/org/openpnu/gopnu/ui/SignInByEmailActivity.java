@@ -1,5 +1,6 @@
 package org.openpnu.gopnu.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.TextInputEditText;
@@ -38,5 +39,10 @@ public class SignInByEmailActivity extends AppCompatActivity {
 
   private void onSignInButtonClicked(View view) {
     Log.d(TAG, "onSignInButtonClicked() called with: view = [" + view + "]");
+
+    // TODO(@ghkim3221): 이메일 주소로 로그인 기능 구현
+    final Intent intent = new Intent(this, MainActivity.class);
+    startActivity(intent);
+    finish();
   }
 }
