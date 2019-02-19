@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     mBottomNavigation.setOnNavigationItemReselectedListener(menuItem -> {
       // TODO(@ghkim3221): 이미 선택된 네비게이션 항목을 다시 선택한 경우
     });
+    mBottomNavigation.setSelectedItemId(R.id.bottom_navigation_action_popular);
   }
 
   private void replaceFragment(@NonNull Fragment fragment) {
