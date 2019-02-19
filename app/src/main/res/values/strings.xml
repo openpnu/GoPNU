@@ -7,4 +7,8 @@
   <string name="sign_in">로그인</string>
 
   <string name="sign_in_by_email">이메일 주소로 로그인</string>
+
+  <string name="playing">Playing</string>
+  <string name="popular">Popular</string>
+  <string name="profile">Profile</string>
 </resources>
