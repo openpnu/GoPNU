@@ -34,13 +34,9 @@ public class SignInActivity extends AppCompatActivity {
   private static final String TAG = SignInActivity.class.getSimpleName();
   private static final int RC_SIGN_IN = 9001;
 
-
-  List<AuthUI.IdpConfig> providers = Arrays.asList(new AuthUI.IdpConfig.GoogleBuilder().build());
-
-
   private FirebaseAuth mAuth;
 
-  private MaterialButton mSignInByEmailButton;
+  //private MaterialButton mSignInByEmailButton; todo (@HWP) 이메일로 로그인 기능 구현
   private SignInButton mSignInByGoogleButton;
   private GoogleSignInClient mGoogleSignInClient;
 
@@ -55,13 +51,20 @@ public class SignInActivity extends AppCompatActivity {
             .build();
     mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+
+/* todo(@HWP) 이메일로 로그인 기능 구현
     mSignInByEmailButton = findViewById(R.id.sign_in_by_email_button);
     mSignInByEmailButton.setOnClickListener(this::onSignInByEmailButtonClicked);
+*/
+
 
     mSignInByGoogleButton = findViewById(R.id.sign_in_by_google_button);
     mSignInByGoogleButton.setOnClickListener(this::onSignInByGoogleButtonClicked);
 
     mAuth = FirebaseAuth.getInstance();
+
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    updateUI(currentUser);
   }
 
   @Override
@@ -81,8 +84,6 @@ public class SignInActivity extends AppCompatActivity {
 
   private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
     Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-    //final Intent intent = new Intent(this, 메인액티비티 추가바람);
-
     AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
     mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
               @Override
@@ -91,7 +92,6 @@ public class SignInActivity extends AppCompatActivity {
                   Log.d(TAG, "signInWithCredential:success");
                   FirebaseUser user = mAuth.getCurrentUser();
                   updateUI(user);
-                  //startActivity(intent);              메인 액티비티 추가후 수정
                 } else {
                   Log.w(TAG, "signInWithCredential:failure", task.getException());
                   Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
@@ -102,8 +102,13 @@ public class SignInActivity extends AppCompatActivity {
   }
 
   private void updateUI(FirebaseUser user) {
+
     if (user != null) {
       findViewById(R.id.sign_in_by_google_button).setVisibility(View.GONE);
+      final Intent intent = new Intent(this, MainActivity.class);
+      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      startActivity(intent);
     } else {
       findViewById(R.id.sign_in_by_google_button).setVisibility(View.VISIBLE);
     }
@@ -112,12 +117,12 @@ public class SignInActivity extends AppCompatActivity {
   private void onSignInByGoogleButtonClicked(View view) {
     Log.d(TAG, "onSignInByGoogleButtonClicked() called with: view = [" + view + "]");
     signIn();
-  }
+  }/*todo (@HWP) 이메일로 로그인 기능 구현
   private void onSignInByEmailButtonClicked(View view) {
     Log.d(TAG, "onSignInByEmailButtonClicked() called with: view = [" + view + "]");
     final Intent intent = new Intent(this, SignInByEmailActivity.class);
     startActivity(intent);
-  }
+  }*/
   private void signIn() {
     Intent signInIntent = mGoogleSignInClient.getSignInIntent();
     startActivityForResult(signInIntent, RC_SIGN_IN);
