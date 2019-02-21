@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".ui.SignInActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout"
+    tools:context=".ui.SignInActivity">
 
-  <TextView
-    android:id="@+id/sign_in_app_name"
-    style="@style/TextAppearance.MaterialComponents.Headline2"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:text="@string/app_name"
-    app:layout_constraintBottom_toTopOf="@id/sign_in_by_email_button"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/sign_in_app_name"
+        style="@style/TextAppearance.MaterialComponents.Headline2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@id/sign_in_by_google_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!-- todo (@HWP) 이메일로 로그인 기능 구현
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_by_email_button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginEnd="@dimen/spacing_24"
+        android:padding="@dimen/spacing_16"
+        android:text="@string/sign_in_by_email"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
+-->
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_by_google_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginEnd="@dimen/spacing_24"
+        android:padding="@dimen/spacing_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618"
+        />
 
-  <android.support.design.button.MaterialButton
-    android:id="@+id/sign_in_by_email_button"
-    style="@style/Widget.MaterialComponents.Button"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/spacing_24"
-    android:layout_marginEnd="@dimen/spacing_24"
-    android:padding="@dimen/spacing_16"
-    android:text="@string/sign_in_by_email"
-    android:textSize="16sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.618"/>
-
-  <!--TODO(@ghkim3221): Google 로그인 추가 필요-->
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
