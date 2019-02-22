@@ -50,6 +50,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
       android:id="@+id/sign_in_by_email_password_edittext"
+        android:inputType="textPassword"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:hint="@string/password"/>
