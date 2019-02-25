@@ -5,6 +5,7 @@
   <string name="password">비밀번호</string>
   <string name="sign_up">회원가입</string>
   <string name="sign_in">로그인</string>
+  <string name="sign_out">로그아웃</string>
 
   <string name="sign_in_by_email">이메일 주소로 로그인</string>
 
@@ -12,11 +13,5 @@
   <string name="popular">Popular</string>
   <string name="profile">Profile</string>
 
-  <string name="firebase_status_fmt">Firebase User: %s</string>
-  <string name="google_status_fmt">Google User: %s</string>
-  <string name="signed_in">Signed In</string>
-  <string name="signed_out">Signed Out</string>
-  <string name="sign_out">sign_out</string>
-  <string name="revoke">revoke</string>
-
+  <string name="failed_to_sign_in">Failed to Sign In</string>
 </resources>
