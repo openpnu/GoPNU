@@ -61,7 +61,7 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             subscribe();
         }
-    }
+    }//end onCreate()
     public void onClick(View v) {
 
         int id=v.getId();
@@ -73,8 +73,9 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
         else if(id==R.id.step_button)
         {
             readStep();
+
         }
-    }//end onClick
+    }//end onClick()
 
     //988372736739-85qq2jc8eiucjgk7gen1qesavh0tvjc6.apps.googleusercontent.com
     /** Records step data by requesting a subscription to background step data. */
@@ -107,7 +108,7 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                             }
                         });
-    }
+    }//end subscribe()
     /**
      * Reads the current daily step total, computed from midnight of the current day on the device's
      * current timezone.
@@ -135,7 +136,7 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
                                 Log.w(TAG, "There was a problem getting the step count.", e);
                             }
                         });
-    }
+    }//end readDistance()
     private void readStep() {
         Fitness.getHistoryClient(this, GoogleSignIn.getLastSignedInAccount(this))
                 .readDailyTotal(DataType.TYPE_STEP_COUNT_DELTA)
@@ -159,21 +160,18 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
                                 Log.w(TAG, "There was a problem getting the step count.", e);
                             }
                         });
-    }
+    }//end readStep()
     private void checkPermission() {
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
-
                 // Show an expanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
-
             } else {
 
                 // No explanation needed, we can request the permission.
