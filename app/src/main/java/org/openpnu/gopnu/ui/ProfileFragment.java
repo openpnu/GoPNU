@@ -6,15 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+
 import org.openpnu.gopnu.R;
+
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 public class ProfileFragment extends Fragment {
 
@@ -25,11 +29,10 @@ public class ProfileFragment extends Fragment {
   private FirebaseAuth mAuth;
 
   private GoogleSignInClient mGoogleSignInClient;
-
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+                           @Nullable Bundle savedInstanceState) {
 
     View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
@@ -37,10 +40,10 @@ public class ProfileFragment extends Fragment {
     mSignOutButton.setOnClickListener(this::onSignOutByGoogleButtonClicked);
 
     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken(getString(R.string.default_web_client_id))
-        .requestEmail()
-        .build();
-    mGoogleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build();
+    mGoogleSignInClient =GoogleSignIn.getClient(getContext(), gso);
 
     mAuth = FirebaseAuth.getInstance();
 
