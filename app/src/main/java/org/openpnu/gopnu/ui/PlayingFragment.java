@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import org.openpnu.gopnu.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import org.openpnu.gopnu.R;
 
 public class PlayingFragment extends Fragment implements View.OnClickListener {
 
@@ -20,7 +20,7 @@ public class PlayingFragment extends Fragment implements View.OnClickListener {
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                           @Nullable Bundle savedInstanceState) {
+      @Nullable Bundle savedInstanceState) {
     return inflater.inflate(R.layout.fragment_playing, container, false);
   }
 

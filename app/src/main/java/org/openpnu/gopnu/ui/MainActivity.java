@@ -1,13 +1,11 @@
 package org.openpnu.gopnu.ui;
 
 import android.os.Bundle;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.openpnu.gopnu.R;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import org.openpnu.gopnu.R;
 
 public class MainActivity extends AppCompatActivity {
 
